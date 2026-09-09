@@ -1,16 +1,19 @@
 pluginManagement {
     repositories {
-        maven {
-            name = "Fabric"
-            url = uri("https://maven.fabricmc.net/")
-        }
-        mavenCentral()
+        maven("https://maven.fabricmc.net/")
         gradlePluginPortal()
+        mavenCentral()
     }
 }
 
-plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        maven("https://maven.fabricmc.net/")
+        maven("https://maven.meteordev.org/releases")
+        maven("https://maven.meteordev.org/snapshots")
+        mavenCentral()
+    }
 }
 
-rootProject.name = "addon-template"
+rootProject.name = "lol-addon"
