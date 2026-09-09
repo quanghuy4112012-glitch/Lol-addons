@@ -1,28 +1,23 @@
 [versions]
 mod-version = "0.1.0"
 
-# Fabric (https://fabricmc.net/develop)
-jdk = "25"
-minecraft = "26.2"
-fabric-loader = "0.19.3"
+# Fabric (Minecraft 1.21.1)
+jdk = "21"
+minecraft = "1.21.1"
+fabric-loader = "0.16.0"
 
-# Loom (https://github.com/FabricMC/fabric-loom)
-loom = "1.17-SNAPSHOT"
+# Loom
+loom = "1.7-SNAPSHOT"
 
-# Meteor (https://github.com/MeteorDevelopment/meteor-client/)
-meteor = "26.2-SNAPSHOT"
-
-# Mods
+# Meteor Client
+meteor = "0.5.8"
 
 [libraries]
-# Fabric base
-minecraft = { module = "com.mojang:minecraft", version.ref = "minecraft" }
-fabric-loader = { module = "net.fabricmc:fabric-loader", version.ref = "fabric-loader" }
+minecraft = { group = "com.mojang", name = "minecraft", version.ref = "minecraft" }
+yarn = { group = "net.fabricmc", name = "yarn", version = "1.21.1+build.1:v2" }
+fabric-loader = { group = "net.fabricmc", name = "fabric-loader", version.ref = "fabric-loader" }
 
-# Meteor client
-meteor-client = { module = "meteordevelopment:meteor-client", version.ref = "meteor" }
-
-# Mods
+meteor-client = { group = "meteordevelopment", name = "meteor-client", version.ref = "meteor" }
 
 [plugins]
-fabric-loom = { id = "net.fabricmc.fabric-loom", version.ref = "loom" }
+fabric-loom = { id = "fabric-loom", version.ref = "loom" }
