@@ -1,5 +1,5 @@
 plugins {
-    id("fabric-loom") version "1.8.9"
+    id("fabric-loom") version "1.9.2"
     `maven-publish`
 }
 
@@ -11,9 +11,9 @@ base {
 }
 
 repositories {
+    maven("https://maven.fabricmc.net/")
     maven("https://maven.meteordev.org/releases")
     maven("https://maven.meteordev.org/snapshots")
-    maven("https://maven.fabricmc.net/")
 }
 
 dependencies {
