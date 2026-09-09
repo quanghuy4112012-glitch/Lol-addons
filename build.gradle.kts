@@ -1,36 +1,38 @@
 plugins {
-    id("fabric-loom") version "1.9.2"
+    id("fabric-loom") version "1.10.0"
     `maven-publish`
+    java
 }
 
-group = project.property("maven_group")!!
-version = project.property("mod_version")!!
+version = project.property("mod_version").toString()
+group = project.property("maven_group").toString()
 
 base {
     archivesName.set(project.property("archives_base_name").toString())
 }
 
 repositories {
+    mavenCentral()
     maven("https://maven.fabricmc.net/")
-    maven("https://maven.meteordev.org/releases")
-    maven("https://maven.meteordev.org/snapshots")
+    maven("https://maven.meteorclient.com/releases")
+    maven("https://maven.meteorclient.com/snapshots")
 }
 
 dependencies {
+    // Fabric & Minecraft
     minecraft("com.mojang:minecraft:${project.property("minecraft_version")}")
     mappings("net.fabricmc:yarn:${project.property("yarn_mappings")}:v2")
     modImplementation("net.fabricmc:fabric-loader:${project.property("loader_version")}")
-    modImplementation("net.fabricmc:fabric-api:${project.property("fabric_version")}")
-    modImplementation("meteordevelopment:meteor-client:${project.property("meteor_version")}")
-}
 
-tasks.processResources {
-    inputs.property("version", project.version)
-    filesMatching("fabric.mod.json") {
-        expand("version" to project.version)
-    }
+    // Meteor Client
+    modImplementation("meteordevelopment:meteor-client:${project.property("meteor_version")}")
 }
 
 tasks.withType<JavaCompile>().configureEach {
     options.release.set(21)
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
 }
