@@ -7,7 +7,7 @@ minecraft = "1.21.1"
 fabric-loader = "0.16.0"
 
 # Loom
-loom = "1.7-SNAPSHOT"
+loom = "1.9-SNAPSHOT"
 
 # Meteor Client
 meteor = "0.5.8"
